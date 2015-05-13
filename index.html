@@ -1,249 +1,89 @@
 <html>
   <head>
-    <title>Frankly.me | embed widgets</title>
+    <title>SCRIET | Library</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="../common/css/app.css">
-  <link href="https://fontastic.s3.amazonaws.com/kCG2HLP9avBFEWJu2yZ2zd/icons.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 
   </head>
   <body>
+ 
+  <div class="container-fluid">
+    <div>
+      <div class="row">
 
+        <form class="form-inline">
+          <div class="form-group">
+            <select id="department" class="form-control">
+              <option>CS</option>
+              <option>IT</option>
+              <option></option>
+              <option>2012</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select id="semester" class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>2012</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <select id="year" class="form-control">
+              <option>2015</option>
+              <option>2014</option>
+              <option>2013</option>
+              <option>2012</option>
+            </select>
+          </div>
+          
+          <a id="viewBtn" type="submit" class="btn btn-default">View</a>
+          <a id="downloadBtn" type="submit" class="btn btn-default">Download</a>
+        </form>
 
-<div class="contain-to-grid sticky" id="nav">
-  
-  <nav class="top-bar" data-topbar="">
-    <ul class="title-area">
-      <li class="name">
-        <h1 class="img-ht"><a class="img-ht" href="/"><img class="img-ht" src="common/img/logo-orange.png"></a></h1>
-      </li>
-
-      <li class="toggle-topbar menu-icon">
-        <a href="#"><span>Menu</span></a>
-      </li>
-    </ul>
-    <section class="top-bar-section">
-        
-        <ul class="right">
-          <li class="active discover-link"><a href="http://frankly.me/discover" target="__blank"><i class="icon-compass"></i> Discover</a></li>
-          <!-- <li class="signin-link"><a>Sign In</a></li> -->
-        </ul>      
-    </section>
-  </nav>
-</div>
-
-<div id="alert-hook">
-  <div data-alert id="alert-box" class="alert-box-wrapper alert-box radius nbrrtop text-center" style="display:none;">
-    Loading...
-    <a href="#" class="close">&times;</a>
-  </div>
-</div>
-
-
-<header class="header-wrapper" style="height:27em;">
-  <div class="overlay fx overlaybg" style="background:url('https://download.unsplash.com/photo-1416339684178-3a239570f315') no-repeat; background-size:cover; background-position:50%;">
-  </div>
-  <div class="overlay fx bgbk">
-    <div class="row">
-      <div class="small-12 columns text-center b-ws-bottom-p">
-        <h2 class="wc f-4x b-ws-top-p  f-l">
-          Get Frankly for your site
-        </h2>
-        <!-- <h3 class="wc f-2x b-ws-top"><span class="f-l">It is time for you to test your limits.</span> By pushing them.</h3> -->
-        
+        <object id="viewPdf" width="100%" height="100%"></object>
       </div>
     </div>
   </div>
-</header>
 
-    <hr>     
-    <div class="row">
-      <div class="small-12 text-center">
-        <h4>get ask button</h4>
-      </div><hr>
-      <div class="small-6 columns">
-        <div id="askBtnSm-frame" style="display:none">
-        <iframe frameborder="0" height="40px" width="80px" src="http://embed.frankly.me/askBtnSm/template.html?user=RJSayema"> </iframe>
-        </div>
-        <div id="askBtnLg-frame">
-          <iframe frameborder="0" height="70px" width="265px" src="http://embed.frankly.me/askBtnLg/template.html?user=RJSayema"> </iframe>
-        </div>
-      </div>
-      <div class="small-6 columns panel">
-        <button type="submit" id="askBtnSm" class="secondary tiny">small</button>
-        <button type="submit" id="askBtnLg" class="secondary tiny">large</button>
-        <div class="row">
-          <div class="small-12 columns">
-          <input id="user-name-input-askBtn" type="text" placeholder="frankly username" value="rjsayema">
-          <button type="submit" onclick='getUserName("askBtn")' class="small">get code</button>
-          </div>
-        </div>
-        <input id="askBtnSm-code" onclick="this.select()" style="width:100%;display:none;" type="text" placeholder="embed code" value='<iframe frameborder="0" height="40px" width="80px" src="http://embed.frankly.me/askBtnSm/template.html?user=RJSayema"> </iframe>'>
-        <input id="askBtnLg-code" onclick="this.select()" style="width:100%" type="text" placeholder="embed code" value='<iframe frameborder="0" height="70px" width="265px" src="http://embed.frankly.me/askBtnLg/template.html?user=RJSayema"> </iframe>'>
-      </div>
-    </div>  
-    <hr>
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <h4>Small user profile widget</h4>
-      </div><hr>
-      <div class="small-6 columns">
-        <div id="userWidgetSm-frame">
-          <iframe frameborder="0" height="444px" width="202px" src="http://embed.frankly.me/userWidgetSm/template.html?user=rjsayema"></iframe>
-        </div>
-      </div>
-      <div class="small-6 columns panel">
-        <div class="row">
-          <div class="small-12 columns">
-          <input id="user-name-input-userWidgetSm" type="text" placeholder="frankly username" value="rjsayema">
-          <button type="submit" onclick='getUserName("userWidgetSm")' class="small">get code</button>
-          </div>
-        </div>
-        <input id="userWidgetSm-code" onclick="this.select()" style="width:100%" type="text" placeholder="embed code" value='<iframe frameborder="0" height="444px" width="202px" src="http://embed.frankly.me/userWidgetSm/template.html?user=RJSayema"> </iframe>'>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <h4>Large user profile widget</h4>
-      </div><hr>
-      <div class="small-8 columns">
-        <div id="userWidgetLg-frame">
-        <iframe frameborder="0" height="600px" width="700px" src="http://embed.frankly.me/userWidgetLg/template.html?user=rjsayema"></iframe>
-               </div>
-      </div>
-      <div class="small-4 columns panel">
-        <div class="row">
-          <div class="small-12 columns">
-          <input id="user-name-input-userWidgetLg" type="text" placeholder="frankly username" value="rjsayema">
-          <button type="submit" onclick='getUserName("userWidgetLg", 480, 640)' class="tiny">get code</button>
-          <button type="submit" onclick='getUserName("userWidgetLg", 220, 300)' class="tiny secondary">Small</button>
-          <button type="submit" onclick='getUserName("userWidgetLg", 280, 340)' class="tiny secondary">Medium</button>
-          <button type="submit" onclick='getUserName("userWidgetLg", 480, 640)' class="tiny secondary">Large</button>
-          <button type="submit" onclick='getUserName("userWidgetLg", 600, 740)' class="tiny secondary">X-large</button>
-          </div>
-        </div>
-        <input id="userWidgetLg-code" onclick="this.select()" style="width:100%" type="text" placeholder="embed code" value='<iframe frameborder="0" height="600px" width="600px" src="http://embed.frankly.me/userWidgetLg/template.html?user=RJSayema"> </iframe>'>
-      </div>
-    </div>
-    <hr>
-    <div class="row">
-      <div class="small-12 columns text-center">
-        <h4>User answers widget</h4>
-      </div><hr>
-      <div class="small-8 columns">
-        <div id="userWidgetBatch-frame">
-          <iframe frameborder="0" height="600px" width="700px" src="http://embed.frankly.me/userWidgetBatch/template.html?user=newslaundry"></iframe>
-        </div>
-      </div>
-      <div class="small-4 columns panel">
-        <div class="row">
-          <div class="small-12 columns">
-            <input id="user-name-input-userWidgetBatch" type="text" placeholder="frankly username" value="newslaundry">
-            <div class="row">
-              <div class="small-4 columns">
-                <small>widht</small><input id="user-name-input-userWidgetBatch-width" type="text" placeholder="height" value="600">
-              </div>
-              <div class="small-4 columns">
-                <small>height</small><input id="user-name-input-userWidgetBatch-height" type="text" placeholder="width" value="600">
-              </div>
-              <div class="small-4 columns">
-                <small>default</small><button type="submit" onclick='getUserName("userWidgetBatch", 600, 600)' class="small">get code</button>
-              </div>  
-            </div>
-          </div>
-        </div>
-        <input id="userWidgetBatch-code" onclick="this.select()" style="width:100%" type="text" placeholder="embed code" value='<iframe frameborder="0" height="600px" width="600px" src="http://embed.frankly.me/userWidgetBatch/template.html?user=newslaundry"> </iframe>'>
-      </div>
-    </div>
-    <hr>
+
   
     <script>
-    $("#askBtnSm").click(function(){
-      $("#askBtnSm-code").show();
-      $("#askBtnSm-frame").show(1000);
-      $("#askBtnLg-code").hide();
-      $("#askBtnLg-frame").hide(100);
+    $("#viewBtn").click(function(){
+      var department = $("#department option:selected").val();
+      var semester = $("#semester option:selected").val();
+      var year = $("#year option:selected").val();
+      console.log(department);
+      console.log(semester);
+      console.log(year);
+      var url = '/pdfs/' + department + '-' + semester +'-' + year + '-all-papers.pdf';
+      $('#viewPdf').attr('data', url);
+      console.log('here');
+      //window.open(url);
     });
-    $("#askBtnLg").click(function(){
-      $("#askBtnLg-code").show();
-      $("#askBtnLg-frame").show(1000);
-      $("#askBtnSm-code").hide();
-      $("#askBtnSm-frame").hide(100);
-    });
-    $('#askBtnLg-code').on('keyup', function (ev) {
-      if (ev.keyCode === 13) {
-        $('#askBtnLg-frame').html($(this).val());
-      }
+
+    $("#downloadBtn").click(function(ev){
+      var department = $("#department option:selected").val();
+      var semester = $("#semester option:selected").val();
+      var year = $("#year option:selected").val();
+      console.log(department);
+      console.log(semester);
+      console.log(year);
+      var url = '/pdfs/' + department + '-' + semester +'-' + year + '-all-papers.pdf';
+      $('#viewPdf').attr('data', url);
+      console.log('here');
+      ev.preventDefault();
+      window.open(url);
     });
     
-    function getUserName(type, height, width)
-    {
-      var api = function(method, url, data) {
-          url = 'http://api.frankly.me' + url;
-        return $.ajax({
-          method: method,
-          url: url,
-          data: data
-        });
-      };
-      ['GET', 'PUT', 'POST', 'DELETE'].forEach(function(m) {
-        api[m.toLowerCase()] = function(url, data) {
-          return api(m, url, data);
-        };
-      });
-      var formInput = "user-name-input-" + type;
-      var username = document.getElementById(formInput).value;
-      api.get('/user/profile/' + username).done(function(data) {
-        var user = data.user.username;
-        var person = user;
-        {
-          if(type=='userWidgetLg'){
-            var userWidgetLgUrl = 'http://embed.frankly.me/userWidgetLg/template.html?user=' + person;
-            var userWidgetLgFrame = '<iframe frameborder="0" height="'+ height +'px" width="'+ width +'px" src="' + userWidgetLgUrl + '"> </iframe>';
-            document.getElementById("userWidgetLg-code").value=userWidgetLgFrame;
-            document.getElementById("userWidgetLg-frame").innerHTML=userWidgetLgFrame;
-          } 
-          if(type=='userWidgetSm'){
-            var userWidgetSmUrl = 'http://embed.frankly.me/userWidgetSm/template.html?user=' + person;
-            var userWidgetSmFrame = '<iframe frameborder="0" height="444px" width="202px" src="' + userWidgetSmUrl + '"> </iframe>';
-            document.getElementById("userWidgetSm-code").value=userWidgetSmFrame;
-            document.getElementById("userWidgetSm-frame").innerHTML=userWidgetSmFrame;
-          }
-          if(type=='askBtn'){
-            var askBtnSmUrl = 'http://embed.frankly.me/askBtnSm/template.html?user=' + person;
-            var askBtnSmFrame = '<iframe frameborder="0" height="40px" width="80px" src="' + askBtnSmUrl + '"> </iframe>';
-            document.getElementById("askBtnSm-code").value=askBtnSmFrame;
-            document.getElementById("askBtnSm-frame").innerHTML=askBtnSmFrame;
-            
-            var askBtnLgUrl = 'http://embed.frankly.me/askBtnLg/template.html?user=' + person;
-            var askBtnLgFrame = '<iframe frameborder="0" height="70px" width="265px" src="' + askBtnLgUrl + '"> </iframe>';
-            document.getElementById("askBtnLg-code").value=askBtnLgFrame;
-            document.getElementById("askBtnLg-frame").innerHTML=askBtnLgFrame;
-            
-          }
-          
-          if(type=='userWidgetBatch'){
-            var widthInput = "user-name-input-" + type + "-width";
-            var heightInput = "user-name-input-" + type + "-height";
-            var widthBatch = document.getElementById(widthInput).value;  
-            var heightBatch = document.getElementById(heightInput).value;  
-            var userWidgetBatchUrl = 'http://embed.frankly.me/userWidgetBatch/template.html?user=' + person;
-            var userWidgetBatchFrame = '<iframe frameborder="0" height="'+ heightBatch +'px" width="'+ widthBatch +'px" src="' + userWidgetBatchUrl + '"> </iframe>';
-            document.getElementById("userWidgetBatch-code").value=userWidgetBatchFrame;
-            document.getElementById("userWidgetBatch-frame").innerHTML=userWidgetBatchFrame;
-          }
-        }
-      });
-      api.get('/user/profile/' + username).fail(function() {
-        alert('wrong username ! enter your frankly username');
-      });
-    }
     </script>
-  
-    <script src="//use.typekit.net/gdw3wsb.js"></script>
-    <script>try{Typekit.load();}catch(e){}</script>
-
+    
   </body>
 </html>
