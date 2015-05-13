@@ -13,46 +13,114 @@
 
   </head>
   <body>
- 
-  <div class="container-fluid">
-    <div>
+      <!-- Fixed navbar -->
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">SCRIET</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+        <!--   <ul class="nav navbar-nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li><a href="#">Separated link</a></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="../navbar/">Default</a></li>
+          <li><a href="../navbar-static-top/">Static top</a></li>
+          <li class="active"><a href="./">Fixed top <span class="sr-only">(current)</span></a></li>
+        </ul> -->
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+
+      <!-- Main component for a primary marketing message or call to action -->
+    <div class="row">
+      
+      <img src="http://ccsuscriet.org/images/logo.jpg" class="img-responsive" width="100%">
+    </div>  
+    <hr>
       <div class="row">
-        <div class="col-xs-12 col-sm-12 col-lg-12">  
+        <div class="col-xs-8 col-xs-offset-2 jumbotron">
+          <h4>Download Previous Year Question Papers</h4>
           <form class="form-inline">
             <div class="form-group">
+              <small>Department</small>
               <select id="department" class="form-control">
                 <option>CS</option>
                 <option>IT</option>
-                <option></option>
-                <option>2012</option>
+                <option>EC</option>
+                <option>EI</option>
+                <option>CH</option>
+                <option>ME</option>
+                <option>AG</option>
+                <option>MCA</option>
+                <option>MBA</option>
               </select>
             </div>
             <div class="form-group">
+              <small>Semester</small>
+
               <select id="semester" class="form-control">
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
-                <option>2012</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
               </select>
             </div>
             <div class="form-group">
+              <small>Year</small>
               <select id="year" class="form-control">
+
                 <option>2015</option>
                 <option>2014</option>
                 <option>2013</option>
                 <option>2012</option>
+                <option>2011</option>
+                <option>2010</option>
               </select>
             </div>
             
-            <a id="viewBtn" type="submit" class="btn btn-default">View</a>
+            <a id="viewBtn" class="btn btn-default" data-toggle="modal" data-target="#myModal">View</a>
             <a id="downloadBtn" type="submit" class="btn btn-default">Download</a>
           </form>
-        </div>  
-        <object id="viewPdf" width="100%" height="100%"></object>
-      </div>
-    </div>
-  </div>
+        </div>
+        
 
+<!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <iframe frameborder="0" id="viewPdf" width="100%" height="95%"></iframe>
+        
+    </div>
+  </div>  
+    </div> <!-- /container -->
+ 
 
   
     <script>
@@ -64,7 +132,7 @@
       console.log(semester);
       console.log(year);
       var url = '/pdfs/' + department + '-' + semester +'-sem-' + year + '-all-papers.pdf';
-      $('#viewPdf').attr('data', url);
+      $('#viewPdf').attr('src', url);
       console.log('here');
       //window.open(url);
     });
@@ -77,12 +145,33 @@
       console.log(semester);
       console.log(year);
       var url = '/pdfs/' + department + '-' + semester +'-sem-' + year + '-all-papers.pdf';
-      $('#viewPdf').attr('data', url);
       console.log('here');
       ev.preventDefault();
       window.open(url);
     });
     
+
+  (function ($) {
+    $(document).ready(function(){
+
+      // hide .navbar first
+      $(".navbar").hide();
+
+      // fade in .navbar
+      $(function () {
+          $(window).scroll(function () {
+
+                   // set distance user needs to scroll before we start fadeIn
+              if ($(this).scrollTop() > 100) {
+                  $('.navbar').fadeIn();
+              } else {
+                  $('.navbar').fadeOut();
+              }
+          });
+      });
+
+    });
+  }(jQuery));
     </script>
     
   </body>
