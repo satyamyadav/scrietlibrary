@@ -52,9 +52,7 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
-
-      <!-- Main component for a primary marketing message or call to action -->
+  <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         
@@ -62,80 +60,75 @@
       </div>
     </div>  
     <hr>
-      <div class="row">
-        <div class="col-xs-8 col-xs-offset-2 jumbotron">
-          <h4>Download Previous Year Question Papers</h4>
-          <form class="form-inline">
-            <div class="form-group">
-              <small>Department</small>
-              <select id="department" class="form-control">
-                <option>CS</option>
-                <option>IT</option>
-                <option>EC</option>
-                <option>EI</option>
-                <option>CH</option>
-                <option>ME</option>
-                <option>AG</option>
-                <option>MCA</option>
-                <option>MBA</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <small>Semester</small>
+    <div class="row">
+      <div class="col-xs-8 col-xs-offset-2 jumbotron">
+        <h4>Download Previous Year Question Papers</h4>
+        <form class="form-inline">
+          <div class="form-group">
+            <small>Department</small>
+            <select id="department" class="form-control">
+              <option>CS</option>
+              <option>IT</option>
+              <option>EC</option>
+              <option>EI</option>
+              <option>CH</option>
+              <option>ME</option>
+              <option>AG</option>
+              <option>MCA</option>
+              <option>MBA</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <small>Semester</small>
 
-              <select id="semester" class="form-control">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <small>Year</small>
-              <select id="year" class="form-control">
+            <select id="semester" class="form-control">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <small>Year</small>
+            <select id="year" class="form-control">
 
-                <option>2015</option>
-                <option>2014</option>
-                <option>2013</option>
-                <option>2012</option>
-                <option>2011</option>
-                <option>2010</option>
-              </select>
-            </div>
-            
-            <a id="viewBtn" class="btn btn-default" data-toggle="modal" data-target="#myModal">View</a>
-            <a id="downloadBtn" type="submit" class="btn btn-default">Download</a>
-          </form>
+              <option>2015</option>
+              <option>2014</option>
+              <option>2013</option>
+              <option>2012</option>
+              <option>2011</option>
+              <option>2010</option>
+            </select>
+          </div>
+          
+          <a id="viewBtn" class="btn btn-default" data-toggle="modal" data-target="#myModal">View</a>
+          <a id="downloadBtn" type="submit" class="btn btn-default">Download</a>
+        </form>
+      </div>
+      
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <iframe frameborder="0" id="viewPdf" width="100%" height="95%"></iframe>
         </div>
-        
-
-<!-- Modal -->
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <iframe frameborder="0" id="viewPdf" width="100%" height="95%"></iframe>
-        
-    </div>
-  </div>  
-    </div> <!-- /container -->
- 
+      </div>
+    </div>  
+  </div> <!-- /container -->
   
-  
-    <script>
+  <script>
+  console.log('what the f**k ! you are looking here for !');
     $("#viewBtn").click(function(){
       var department = $("#department option:selected").val();
       var semester = $("#semester option:selected").val();
       var year = $("#year option:selected").val();
-      console.log(department);
-      console.log(semester);
-      console.log(year);
       var url = 'pdfs/' + department + '-' + semester +'-sem-' + year + '-all-papers.pdf';
       $('#viewPdf').attr('src', url);
-      console.log('here');
       //window.open(url);
     });
 
@@ -143,38 +136,33 @@
       var department = $("#department option:selected").val();
       var semester = $("#semester option:selected").val();
       var year = $("#year option:selected").val();
-      console.log(department);
-      console.log(semester);
-      console.log(year);
       var url = 'pdfs/' + department + '-' + semester +'-sem-' + year + '-all-papers.pdf';
-      console.log('here');
       ev.preventDefault();
       window.open(url);
     });
     
 
-  (function ($) {
-    $(document).ready(function(){
+    (function ($) {
+      $(document).ready(function(){
 
-      // hide .navbar first
-      $(".navbar").hide();
+        // hide .navbar first
+        $(".navbar").hide();
 
-      // fade in .navbar
-      $(function () {
-          $(window).scroll(function () {
+        // fade in .navbar
+        $(function () {
+            $(window).scroll(function () {
 
-                   // set distance user needs to scroll before we start fadeIn
-              if ($(this).scrollTop() > 100) {
-                  $('.navbar').fadeIn();
-              } else {
-                  $('.navbar').fadeOut();
-              }
-          });
+                     // set distance user needs to scroll before we start fadeIn
+                if ($(this).scrollTop() > 100) {
+                    $('.navbar').fadeIn();
+                } else {
+                    $('.navbar').fadeOut();
+                }
+            });
+        });
       });
-
-    });
-  }(jQuery));
-    </script>
+    }(jQuery));
+  </script>
     
   </body>
 </html>
