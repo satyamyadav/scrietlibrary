@@ -28,8 +28,8 @@
           </div>
           <form class="col card-panel teal s12 m12 l4 offset-l4 z-depth-3">
             <div class="input-field col s12">
-              <select id="department">
-                <option value="" disabled selected>Choose your Department</option>
+              <select id="department" required>
+                <option value="null" disabled selected>Choose your Department</option>
                 <option value="CS">Computer Science (CS)</option>
                 <option value="IT">Information Technology (IT)</option>
                 <option value="EC">ELECTRONICS & COMMUNICATION (EC)</option>
@@ -42,22 +42,24 @@
               </select>
             </div>
             <div class="input-field col s12">
-              <select id="semester">
-                <option value="" disabled selected>Choose your Semester</option>
+              <select id="semester" required>
+                <option value="null" disabled selected>Choose your Semester</option>
                 <option value="1">I -semester</option>
+                <option value="2">II -semester</option>
                 <option value="3">III -semester</option>
+                <option value="4">IV-semester</option>
                 <option value="5">V -semester</option>
               </select>
             </div>
             <div class="input-field col s12">
-              <select id="year">
-                <option value="" disabled selected>Choose Year of Examination </option>
+              <select id="year" required>
+                <option value="null" disabled selected>Choose Year of Examination </option>
                 <option value="2014">2014</option>
               </select>
             </div>
             
-              <a id="viewBtn" title="view" class="waves-effect btn-floating btn-large right "><i class="mdi-image-crop-original left"></i></a>
-              <a id="downloadBtn" title="download" class="waves-effect btn-floating btn-large right "><i class="mdi-file-file-download left"></i></a>
+              <a onclick='getPdf("view")' title="view" class="waves-effect btn-floating btn-large right "><i class="mdi-image-crop-original left"></i></a>
+              <a onclick='getPdf("download")' title="download" class="waves-effect btn-floating btn-large right "><i class="mdi-file-file-download left"></i></a>
           </form>
         </div>
       </div>
@@ -72,24 +74,32 @@
 
   <script>
   console.log('what the f**k ! you are looking here for !');
-    $("#viewBtn").click(function(){
-      var department = $("#department option:selected").val();
-      var semester = $("#semester option:selected").val();
-      var year = $("#year option:selected").val();
-      var url = 'pdfs/' + department + '-' + semester +'-sem-' + year + '-all-papers.pdf';
-      $('#viewPdf').attr('src', url);
-      $('#modal').openModal();
-    });
 
-    $("#downloadBtn").click(function(ev){
+    function getPdf(type){
       var department = $("#department option:selected").val();
       var semester = $("#semester option:selected").val();
       var year = $("#year option:selected").val();
-      var url = 'pdfs/' + department + '-' + semester +'-sem-' + year + '-all-papers.pdf';
-      ev.preventDefault();
-      window.open(url);
-    });
-    
+      if (department == 'null') {
+        alert('Please select Department');
+      }
+      else if (semester == 'null') {
+        alert('Please select Semester');
+      }
+      else if (year == 'null') {
+        alert('Please select year of Examination');
+      }
+      else{
+        var url = 'pdfs/' + department + '-' + semester +'-sem-' + year + '-all-papers.pdf';
+        if (type == 'view'){
+          $('#viewPdf').attr('src', url);
+          $('#modal').openModal();
+        }
+        else{
+          window.open(url);
+        }
+      }  
+    }
+
 $(document).ready(function() {
     $('select').material_select();
   });
