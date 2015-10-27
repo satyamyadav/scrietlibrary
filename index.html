@@ -21,6 +21,13 @@
     <div class="row">
       <div class="col s12">
         <div>
+          
+          <div class="col card-panel lighten-2 teal s12 m12 l4 offset-l4 z-depth-3">
+            <h5 class="white-text "> !! Contribute helping our juniors !! </h5>
+            <p>upload any semester question paper in any formate (pdf, doc, image or zip ...)</p>
+            <a onclick='uploadFile()' title="upload" class="waves-effect btn-floating btn-large right "><i class="mdi-action-note-add left"></i></a>
+          </div>
+
           <div class="col card-panel teal s12 m12 l4 offset-l4 z-depth-3">
             <span class="white-text ">You can download Previous Year Question Papers ! <br>
             Just select the details for paper you want to download !
@@ -69,11 +76,27 @@
           <iframe frameborder="0" id="viewPdf" width="100%" height="95%"></iframe>
           <a class="modal-action modal-close btn-floating btn-large waves-effect waves-light red" style="position:fixed; bottom:5px; right:5px"><i class="mdi-content-clear"></i></a>
       </div>
+
+      <!-- Modal Structure -->
+      <div id="upload-modal" class="modal">
+        <div class="modal-content">
+          <iframe src="https://script.google.com/macros/s/AKfycbwulePkfyuettlm4Mco6SfiQFP27yvGPHBh3JTyMmO4zd4uWWdA/exec" frameborder="0" width="90%" height="80%"></iframe>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+      </div>
+
     </div>
 
 
   <script>
   console.log('what the f**k ! you are looking here for !');
+
+    function uploadFile(){
+      $('#upload-modal').openModal();
+
+    };
 
     function getPdf(type){
       var department = $("#department option:selected").val();
