@@ -1,0 +1,29 @@
+.main {
+	text-align: center;
+	padding: 50px;
+}
+
+.card-panel {
+	background-color: #e3e3e3;
+	padding: 15px;
+	text-align: center;
+	margin: 15px;
+	border: 1px solid #CAC7C7;
+	box-shadow: 0 2px 1px rgba(62, 62, 62, 0.6);
+	border-radius: 3px;
+}
+
+.btn-large {
+	background-color: #e2e2e2;
+	border: 1px solid #dadada;
+	border-radius: 2px;
+	padding: 5px;
+	text-align: center;
+	box-shadow: 0 2px 3px #d1d1d1;
+	margin: 5px;
+	cursor: pointer;
+}
+
+.input-field {
+	margin: 15px;
+}
